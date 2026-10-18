@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>My Holiday | Haykel Winner Sinaga</title>
+  <meta name="description" content="Galeri foto liburan Haykel Winner Sinaga.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,400&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ===== HEADER (sama di semua halaman) ===== -->
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="index.html">
+        <span class="brand-mark" aria-hidden="true">H</span>
+        Haykel Sinaga
+      </a>
+      <nav class="main-nav" aria-label="Navigasi utama">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="biodata.html">Biodata</a></li>
+          <li><a href="myHoliday.html" aria-current="page">My Holiday</a></li>
+          <li><a href="contact.html">Contact Me</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <section class="page-title">
+      <div class="wrap">
+        <span class="eyebrow">Catatan perjalanan</span>
+        <h1>My Holiday</h1>
+        <p>Tujuh potret dari liburan yang paling saya ingat.</p>
+      </div>
+    </section>
+
+    <div class="wrap">
+
+      <section class="holiday-intro" aria-labelledby="intro-title">
+        <h2 id="intro-title" class="eyebrow" style="margin-bottom:.6rem">Cerita singkat</h2>
+        <p>
+          Liburan buat saya bukan soal tempat yang jauh, tapi siapa yang
+          berangkat bersama. Ada perjalanan ke daerah pegunungan dan danau
+          dengan udara sejuk dan jalan berkelok, ada juga hari-hari santai di
+          kota: duduk di pinggir laut, mampir ke kawasan kota tua, atau
+          bermain di arcade. Berikut sebagian momen yang sempat saya
+          abadikan.
+        </p>
+      </section>
+
+      <!-- ===== GALERI (Flexbox) ===== -->
+      <section class="gallery" aria-label="Galeri foto liburan">
+
+        <figure class="shot shot--wide">
+          <img src="images/jembatan-pegunungan.jpg"
+               alt="Tiga teman bersandar di pagar jembatan merah putih dengan latar tebing hijau dan sungai berbatu"
+               style="--focus: 50% 45%" loading="lazy">
+          <figcaption>
+            <strong>Sore di atas jembatan</strong>
+            Berhenti sebentar di jembatan sambil menikmati tebing hijau dan aliran sungai di bawahnya.
+          </figcaption>
+        </figure>
+
+        <figure class="shot">
+          <img src="images/senja-danau.jpg"
+               alt="Saya bersandar di dinding beton dengan pemandangan danau dan lampu-lampu kota saat senja"
+               style="--focus: 50% 60%" loading="lazy">
+          <figcaption>
+            <strong>Senja di tepi danau</strong>
+            Langit mulai gelap dan lampu-lampu dermaga satu per satu menyala.
+          </figcaption>
+        </figure>
+
+        <figure class="shot">
+          <img src="images/malam-jembatan.jpg"
+               alt="Saya duduk di trotoar jembatan pada malam hari dengan lampu dermaga di kejauhan"
+               style="--focus: 50% 60%" loading="lazy">
+          <figcaption>
+            <strong>Malam yang tenang</strong>
+            Istirahat sejenak di pinggir jembatan setelah seharian berkeliling.
+          </figcaption>
+        </figure>
+
+        <figure class="shot shot--wide">
+          <img src="images/bawah-pohon.jpg"
+               alt="Empat teman berswafoto di bawah pohon besar dengan bukit gersang dan dua sepeda motor di belakang"
+               style="--focus: 50% 35%" loading="lazy">
+          <figcaption>
+            <strong>Rehat di bawah pohon</strong>
+            Foto bersama sebelum melanjutkan perjalanan naik motor.
+          </figcaption>
+        </figure>
+
+        <figure class="shot">
+          <img src="images/tepi-laut.jpg"
+               alt="Tiga teman duduk di tembok batu tepi laut dengan langit biru cerah"
+               style="--focus: 50% 65%" loading="lazy">
+          <figcaption>
+            <strong>Santai di tepi laut</strong>
+            Angin kencang, langit cerah, dan pose kompak yang tidak direncanakan.
+          </figcaption>
+        </figure>
+
+        <figure class="shot">
+          <img src="images/kota-tua.jpg"
+               alt="Dua teman berfoto bersama patung hidup berwarna perunggu di kawasan kota tua"
+               style="--focus: 50% 50%" loading="lazy">
+          <figcaption>
+            <strong>Keliling kota tua</strong>
+            Berfoto bersama pertunjukan patung hidup di kawasan bersejarah.
+          </figcaption>
+        </figure>
+
+        <figure class="shot">
+          <img src="images/arcade.jpg"
+               alt="Saya berdiri di depan mesin air hockey di area permainan arcade"
+               style="--focus: 50% 70%" loading="lazy">
+          <figcaption>
+            <strong>Tantangan di arcade</strong>
+            Sebelum ronde air hockey dimulai, foto dulu.
+          </figcaption>
+        </figure>
+
+      </section>
+    </div>
+
+  </main>
+
+  <!-- ===== FOOTER (sama di semua halaman) ===== -->
+  <footer class="site-footer">
+    <div class="wrap footer-inner">
+      <p>&copy; 2026 Haykel Winner Sinaga. Proyek Tengah Semester, Web Programming I.</p>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="biodata.html">Biodata</a></li>
+        <li><a href="myHoliday.html">My Holiday</a></li>
+        <li><a href="contact.html">Contact Me</a></li>
+      </ul>
+    </div>
+  </footer>
+
+</body>
+</html>

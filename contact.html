@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Contact Me | Haykel Winner Sinaga</title>
+  <meta name="description" content="Hubungi Haykel Winner Sinaga lewat email atau media sosial.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,400&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ===== HEADER (sama di semua halaman) ===== -->
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="index.html">
+        <span class="brand-mark" aria-hidden="true">H</span>
+        Haykel Sinaga
+      </a>
+      <nav class="main-nav" aria-label="Navigasi utama">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="biodata.html">Biodata</a></li>
+          <li><a href="myHoliday.html">My Holiday</a></li>
+          <li><a href="contact.html" aria-current="page">Contact Me</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <section class="page-title">
+      <div class="wrap">
+        <span class="eyebrow">Mari terhubung</span>
+        <h1>Contact Me</h1>
+        <p>
+          Ada pertanyaan, ajakan kolaborasi, atau sekadar ingin menyapa?
+          Tulis pesan di bawah ini, saya senang membacanya.
+        </p>
+      </div>
+    </section>
+
+    <div class="wrap contact-layout">
+
+      <!-- ===== FORMULIR ===== -->
+      <!-- Tanpa backend: pesan dibuka lewat aplikasi email (mailto) -->
+      <form class="contact-form"
+            action="mailto:EMAIL.KAMU@gmail.com"
+            method="post"
+            enctype="text/plain">
+
+        <div class="field">
+          <label for="nama">Nama lengkap</label>
+          <input type="text" id="nama" name="Nama" required minlength="3"
+                 autocomplete="name" placeholder="Nama kamu">
+        </div>
+
+        <div class="field">
+          <label for="email">Alamat email</label>
+          <input type="email" id="email" name="Email" required
+                 autocomplete="email" placeholder="nama@email.com">
+        </div>
+
+        <div class="field">
+          <label for="subjek">Subjek</label>
+          <input type="text" id="subjek" name="Subjek" required minlength="3"
+                 placeholder="Tentang apa pesan ini?">
+        </div>
+
+        <div class="field">
+          <label for="pesan">Pesan</label>
+          <textarea id="pesan" name="Pesan" required minlength="10"
+                    placeholder="Tulis pesanmu di sini..."></textarea>
+        </div>
+
+        <button class="btn btn-primary" type="submit">Send Message</button>
+      </form>
+
+      <!-- ===== INFO KONTAK ===== -->
+      <aside class="contact-info" aria-labelledby="info-title">
+        <h2 id="info-title">Cara lain menghubungi saya</h2>
+        <p>Kalau lebih nyaman lewat email atau media sosial, ini jalurnya.</p>
+
+        <ul class="contact-list">
+          <li>
+            <small>Email</small>
+            <a href="mailto:EMAIL.KAMU@gmail.com">2481048@unai.edu</a>
+          </li>
+          <li>
+            <small>Instagram</small>
+            <a href="https://www.instagram.com/USERNAME_KAMU/"
+               target="_blank" rel="noopener noreferrer">@haykel_sinaga</a>
+          </li>
+          <li>
+            <small>GitHub</small>
+            <a href="https://github.com/USERNAME_GITHUB_KAMU"
+               target="_blank" rel="noopener noreferrer">https://github.com/haykel048</a>
+          </li>
+        </ul>
+      </aside>
+
+    </div>
+
+  </main>
+
+  <!-- ===== FOOTER (sama di semua halaman) ===== -->
+  <footer class="site-footer">
+    <div class="wrap footer-inner">
+      <p>&copy; 2026 Haykel Winner Sinaga. Proyek Tengah Semester, Web Programming I.</p>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="biodata.html">Biodata</a></li>
+        <li><a href="myHoliday.html">My Holiday</a></li>
+        <li><a href="contact.html">Contact Me</a></li>
+      </ul>
+    </div>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,809 @@
+/* =========================================================
+   style.css — Personal Website (Web Programming I, Mid Project)
+   Pendekatan: mobile-first. Layout dasar untuk layar kecil,
+   lalu diperlebar lewat media query (640px, 900px).
+   ========================================================= */
+
+/* ---------- 1. Design tokens ---------- */
+:root {
+  --paper: #f4efe6;
+  --paper-deep: #e9e1d2;
+  --ink: #1d2a24;
+  --ink-soft: #4b5a52;
+  --forest: #2f4a3c;
+  --forest-dark: #20352a;
+  --clay: #c2562f;
+  --clay-dark: #a3441f;
+  --line: #d6cbb7;
+
+  --font-display: "Fraunces", Georgia, "Times New Roman", serif;
+  --font-body: "DM Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+
+  --radius: 6px;
+  --gutter: 1.25rem;
+  --max: 1100px;
+}
+
+/* ---------- 2. Reset ringan & dasar ---------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box; /* Box Model: padding & border ikut dihitung dalam lebar */
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--ink);
+  background: var(--paper);
+  min-height: 100vh;
+  display: flex;            /* footer selalu menempel di bawah */
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
+}
+
+img {
+  display: block;
+  max-width: 100%;          /* gambar responsif, tidak overflow */
+  height: auto;
+}
+
+h1, h2, h3 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  line-height: 1.15;
+  margin: 0 0 0.6em;
+  letter-spacing: -0.01em;
+}
+
+p { margin: 0 0 1em; }
+
+a {
+  color: var(--clay-dark);
+  text-underline-offset: 3px;
+}
+
+a:hover { color: var(--clay); }
+
+:focus-visible {
+  outline: 3px solid var(--clay);
+  outline-offset: 3px;
+}
+
+.wrap {
+  width: 100%;
+  max-width: var(--max);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+.eyebrow {
+  display: inline-block;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--clay-dark);
+  margin-bottom: 0.9rem;
+}
+
+/* ---------- 3. Header & navigasi (sama di semua halaman) ---------- */
+.site-header {
+  background: var(--paper);
+  border-bottom: 1px solid var(--line);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.header-inner {
+  display: flex;
+  flex-direction: column;   /* mobile: logo di atas, menu di bawah */
+  align-items: flex-start;
+  gap: 0.4rem;
+  padding-block: 0.8rem;
+}
+
+.brand {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--forest);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.brand-mark {
+  display: grid;
+  place-items: center;
+  width: 2rem;
+  height: 2rem;
+  background: var(--forest);
+  color: var(--paper);
+  border-radius: 50%;
+  font-size: 1rem;
+}
+
+.main-nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 1.1rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.main-nav a {
+  display: inline-block;
+  padding: 0.2rem 0;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--ink-soft);
+  text-decoration: none;
+  border-bottom: 2px solid transparent;
+}
+
+.main-nav a:hover,
+.main-nav a[aria-current="page"] {
+  color: var(--ink);
+  border-bottom-color: var(--clay);
+}
+
+/* ---------- 4. Tombol ---------- */
+.btn {
+  display: inline-block;
+  padding: 0.8rem 1.5rem;
+  font: inherit;
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-decoration: none;
+  border: 2px solid var(--forest);
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: transform 0.15s ease, background 0.15s ease, color 0.15s ease;
+}
+
+.btn-primary {
+  background: var(--forest);
+  color: var(--paper);
+}
+
+.btn-primary:hover {
+  background: var(--forest-dark);
+  color: var(--paper);
+  transform: translateY(-2px);
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--forest);
+}
+
+.btn-ghost:hover {
+  background: var(--forest);
+  color: var(--paper);
+  transform: translateY(-2px);
+}
+
+.btn-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  margin-top: 1.6rem;
+}
+
+/* ---------- 5. HOME ---------- */
+.hero {
+  padding-block: 2.5rem 3rem;
+}
+
+.hero-inner {
+  display: grid;            /* Grid: 1 kolom di mobile */
+  gap: 2.5rem;
+  align-items: center;
+}
+
+.hero h1 {
+  font-size: clamp(2.4rem, 9vw, 4.6rem);
+  font-weight: 700;
+}
+
+.hero h1 em {
+  font-style: italic;
+  font-weight: 400;
+  color: var(--clay);
+}
+
+.hero-lead {
+  font-size: 1.1rem;
+  color: var(--ink-soft);
+  max-width: 34rem;
+}
+
+.hero-photo {
+  position: relative;
+  margin: 0;
+  max-width: 360px;
+  width: 100%;
+  justify-self: center;
+}
+
+/* blok warna di belakang foto, memberi kesan berlapis */
+.hero-photo::before {
+  content: "";
+  position: absolute;
+  inset: 14px -14px -14px 14px;
+  background: var(--forest);
+  border-radius: var(--radius);
+  z-index: 0;
+}
+
+.hero-photo img {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  border-radius: var(--radius);
+  border: 6px solid var(--paper);
+}
+
+.hero-photo figcaption {
+  position: absolute;
+  z-index: 2;
+  left: -10px;
+  bottom: 28px;
+  background: var(--clay);
+  color: #fff;
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 0.35rem 0.8rem;
+  border-radius: 2px;
+}
+
+.facts {
+  background: var(--forest);
+  color: var(--paper);
+}
+
+.facts-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.facts-list li {
+  padding: 1.1rem 0;
+  border-bottom: 1px solid rgba(244, 239, 230, 0.2);
+  display: flex;
+  flex-direction: column;
+}
+
+.facts-list li:last-child { border-bottom: 0; }
+
+.facts-list strong {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  font-weight: 600;
+}
+
+.facts-list span {
+  font-size: 0.88rem;
+  opacity: 0.8;
+}
+
+.section {
+  padding-block: 3.5rem;
+}
+
+.section-head {
+  max-width: 36rem;
+  margin-bottom: 2rem;
+}
+
+.section-head h2 {
+  font-size: clamp(1.8rem, 5vw, 2.5rem);
+}
+
+.explore {
+  display: grid;
+  gap: 1rem;
+}
+
+.explore-card {
+  display: block;
+  padding: 1.5rem;
+  background: #fbf8f2;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  color: var(--ink);
+  text-decoration: none;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.explore-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--clay);
+  color: var(--ink);
+}
+
+.explore-card .num {
+  font-family: var(--font-display);
+  font-size: 2.4rem;
+  font-style: italic;
+  color: var(--clay);
+  line-height: 1;
+}
+
+.explore-card h3 {
+  margin: 0.6rem 0 0.3rem;
+  font-size: 1.35rem;
+}
+
+.explore-card p {
+  margin: 0;
+  color: var(--ink-soft);
+  font-size: 0.95rem;
+}
+
+.teaser {
+  background: var(--paper-deep);
+}
+
+.teaser-inner {
+  display: flex;            /* Flexbox: teks + 2 foto */
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.teaser-photos {
+  display: flex;
+  gap: 0.8rem;
+}
+
+.teaser-photos img {
+  flex: 1 1 0;
+  min-width: 0;
+  height: 240px;
+  object-fit: cover;
+  border-radius: var(--radius);
+}
+
+.teaser-photos img:nth-child(2) {
+  margin-top: 1.5rem;       /* sedikit bergeser agar tidak kaku */
+}
+
+/* ---------- 6. Judul halaman dalam ---------- */
+.page-title {
+  padding-block: 3rem 1.5rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.page-title h1 {
+  font-size: clamp(2.2rem, 7vw, 3.6rem);
+  margin-bottom: 0.4rem;
+}
+
+.page-title p {
+  color: var(--ink-soft);
+  max-width: 38rem;
+  margin: 0;
+}
+
+/* ---------- 7. BIODATA ---------- */
+.bio-layout {
+  display: grid;
+  gap: 2.5rem;
+  padding-block: 2.5rem 3.5rem;
+}
+
+.profile-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.2rem;
+}
+
+.profile-photo {
+  width: 100%;
+  max-width: 200px;         /* sesuai ketentuan: maks. 200px */
+  aspect-ratio: 3 / 4;      /* rasio 3:4 */
+  object-fit: cover;
+  border-radius: var(--radius);
+  border: 5px solid #fbf8f2;
+  box-shadow: 8px 8px 0 var(--forest);
+}
+
+.profile-data {
+  margin: 0;
+  width: 100%;
+}
+
+.profile-data div {
+  padding: 0.6rem 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.profile-data dt {
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+
+.profile-data dd {
+  margin: 0;
+  font-weight: 500;
+}
+
+.bio-main > section + section {
+  margin-top: 2.8rem;
+}
+
+.bio-main h2 {
+  font-size: clamp(1.5rem, 4vw, 2rem);
+  padding-bottom: 0.4rem;
+  border-bottom: 3px solid var(--clay);
+  display: inline-block;
+}
+
+.hobby-grid {
+  display: flex;            /* dua kartu hobi sejajar di layar lebar */
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.hobby-card {
+  flex: 1;
+  background: #fbf8f2;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 1.3rem 1.4rem;
+}
+
+.hobby-card h3 {
+  font-size: 1.15rem;
+  margin-bottom: 0.7rem;
+}
+
+.hobby-card ol,
+.hobby-card ul {
+  margin: 0;
+  padding-left: 1.2rem;
+}
+
+.hobby-card li + li { margin-top: 0.5rem; }
+
+.hobby-card li span {
+  display: block;
+  font-size: 0.9rem;
+  color: var(--ink-soft);
+}
+
+.table-scroll {
+  overflow-x: auto;         /* tabel tetap rapi di layar kecil */
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: #fbf8f2;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 420px;
+}
+
+caption {
+  text-align: left;
+  padding: 0.8rem 1rem;
+  font-size: 0.9rem;
+  color: var(--ink-soft);
+}
+
+th, td {
+  padding: 0.8rem 1rem;
+  text-align: left;
+  border-top: 1px solid var(--line);
+}
+
+thead th {
+  background: var(--forest);
+  color: var(--paper);
+  font-size: 0.85rem;
+  letter-spacing: 0.06em;
+  border-top: 0;
+}
+
+tbody tr:nth-child(even) { background: rgba(214, 203, 183, 0.25); }
+
+/* ---------- 8. MY HOLIDAY (Flexbox gallery) ---------- */
+.holiday-intro {
+  padding-block: 2.5rem 1rem;
+  max-width: 44rem;
+}
+
+.holiday-intro p {
+  font-size: 1.08rem;
+  color: var(--ink-soft);
+}
+
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: stretch;
+  gap: 1.2rem;
+  padding-block: 1rem 3.5rem;
+}
+
+.shot {
+  flex: 1 1 260px;          /* tumbuh, menyusut, lebar dasar 260px */
+  max-width: 100%;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  background: #fbf8f2;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.shot img {
+  width: 100%;
+  height: 360px;
+  object-fit: cover;
+  object-position: var(--focus, 50% 40%);
+  transition: transform 0.4s ease;
+}
+
+.shot:hover img { transform: scale(1.03); }
+
+.shot--wide {
+  flex-grow: 2;
+  flex-basis: 420px;
+}
+
+.shot--wide img { height: 360px; }
+
+.shot figcaption {
+  padding: 0.9rem 1.1rem 1.1rem;
+  font-size: 0.92rem;
+  color: var(--ink-soft);
+  line-height: 1.55;
+}
+
+.shot figcaption strong {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  color: var(--ink);
+  margin-bottom: 0.15rem;
+}
+
+/* ---------- 9. CONTACT ---------- */
+.contact-layout {
+  display: grid;
+  gap: 2rem;
+  padding-block: 2.5rem 3.5rem;
+}
+
+.contact-form {
+  display: grid;
+  gap: 1.1rem;
+  background: #fbf8f2;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.field label {
+  font-size: 0.88rem;
+  font-weight: 600;
+}
+
+.field input,
+.field textarea {
+  width: 100%;
+  font: inherit;
+  color: var(--ink);
+  padding: 0.75rem 0.9rem;
+  background: var(--paper);
+  border: 1.5px solid var(--line);
+  border-radius: var(--radius);
+}
+
+.field input:focus,
+.field textarea:focus {
+  outline: none;
+  border-color: var(--forest);
+  box-shadow: 0 0 0 3px rgba(47, 74, 60, 0.18);
+}
+
+.field textarea {
+  min-height: 160px;
+  resize: vertical;
+}
+
+.contact-form .btn { justify-self: start; }
+
+.contact-info {
+  background: var(--forest);
+  color: var(--paper);
+  border-radius: var(--radius);
+  padding: 1.8rem 1.5rem;
+  align-self: start;
+}
+
+.contact-info h2 {
+  font-size: 1.4rem;
+}
+
+.contact-info a {
+  color: var(--paper);
+  text-decoration-color: var(--clay);
+}
+
+.contact-info a:hover { color: #fff; }
+
+.contact-list {
+  list-style: none;
+  margin: 1.2rem 0 0;
+  padding: 0;
+}
+
+.contact-list li {
+  padding: 0.85rem 0;
+  border-top: 1px solid rgba(244, 239, 230, 0.22);
+}
+
+.contact-list small {
+  display: block;
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  opacity: 0.7;
+}
+
+/* ---------- 10. Footer (sama di semua halaman) ---------- */
+.site-footer {
+  background: var(--ink);
+  color: #cfd6d1;
+  font-size: 0.9rem;
+}
+
+.footer-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  padding-block: 1.6rem;
+}
+
+.footer-inner p { margin: 0; }
+
+.footer-inner ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 1.2rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.site-footer a {
+  color: #fff;
+  text-decoration-color: var(--clay);
+}
+
+/* =========================================================
+   MEDIA QUERIES
+   ========================================================= */
+
+/* Tablet ke atas */
+@media (min-width: 640px) {
+  :root { --gutter: 2rem; }
+
+  .header-inner {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .facts-list {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+
+  .facts-list li {
+    border-bottom: 0;
+    border-left: 1px solid rgba(244, 239, 230, 0.2);
+    padding: 1.5rem 0 1.5rem 1.2rem;
+  }
+
+  .explore { grid-template-columns: repeat(3, 1fr); }
+
+  .teaser-photos img { height: 300px; }
+
+  .hobby-grid { flex-direction: row; }
+
+  .footer-inner {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .contact-form { padding: 2rem; }
+  .field-pair {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.1rem;
+  }
+}
+
+/* Desktop */
+@media (min-width: 900px) {
+  .hero { padding-block: 4.5rem 5rem; }
+
+  .hero-inner {
+    grid-template-columns: 1.25fr 0.85fr;
+    gap: 4rem;
+  }
+
+  .hero-photo { justify-self: end; }
+
+  .teaser-inner {
+    flex-direction: row;
+    align-items: center;
+    gap: 4rem;
+  }
+
+  .teaser-inner > * { flex: 1; }
+
+  .teaser-photos img { height: 340px; }
+
+  .bio-layout {
+    grid-template-columns: 240px 1fr;
+    gap: 4rem;
+  }
+
+  .profile-card {
+    position: sticky;
+    top: 5.5rem;
+    align-self: start;
+  }
+
+  .contact-layout {
+    grid-template-columns: 1.3fr 0.9fr;
+    gap: 2.5rem;
+  }
+
+  .shot img { height: 400px; }
+  .shot--wide img { height: 400px; }
+}
+
+/* Hormati preferensi pengguna yang tidak ingin animasi */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}
